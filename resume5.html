@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Hacker Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fira Mono for code feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fira Mono', monospace;
+            background-color: #0a0f12;
+            color: #39ff14;
+        }
+
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #39ff14;
+            white-space: nowrap;
+            animation:
+                typing 2.8s steps(40, end) 1s 1 normal both,
+                blink-caret .75s step-end infinite;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            0%, 100% { border-color: #39ff14 }
+            50% { border-color: transparent }
+        }
+        .glow {
+            text-shadow: 0 0 15px #39ff14, 0 0 10px #29a329;
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 32px #39ff1455;
+            transform: translateY(-4px) scale(1.04);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Matrix Background -->
+<canvas id="matrix-canvas"></canvas>
+
+<div class="relative z-10 mx-auto max-w-3xl px-6 py-10">
+
+    <!-- Header Section [Typewriter Effect] -->
+    <header class="text-center mb-12">
+        <div class="mt-2 mb-4 flex justify-center">
+            <img src="LINK-TO-YOUR-AVATAR.png"
+                 alt="Your Avatar"
+                 class="rounded-full border-4 border-green-800 shadow-md w-24 h-24">
+        </div>
+        <h1 class="typewriter glow text-green-400">Your Name</h1>
+        <div class="text-lg glow mb-2">Cybersecurity Enthusiast | Ethical Hacker | B.Tech CSE (Your College/University)</div>
+        <div class="text-green-500 text-xs">“Think like a hacker. Build like an engineer.”</div>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="bg-black/80 p-6 rounded-lg mb-8 shadow-lg border border-green-600/30">
+        <h2 class="glow text-2xl mb-2">About Me</h2>
+        <p>
+            I am a cybersecurity specialist in training with hands-on experience in penetration testing, capture-the-flag (CTF) challenges, and open-source defense tools. My passion lies in unraveling vulnerabilities before malicious actors do, and I'm constantly learning to keep one step ahead. When not hacking, I automate tasks, devour RFCs, or tinker with my home lab.<br><br>
+            <span class="font-bold text-green-400">Location:</span> Your City<br>
+            <span class="font-bold text-green-400">Email:</span> your.email@domain.com
+        </p>
+    </section>
+
+    <!-- Skills & Tech Stack (Dynamic display effect) -->
+    <section class="mb-8">
+        <h2 class="glow text-2xl mb-2">Skills & Specialization</h2>
+        <div id="skills-list" class="flex flex-wrap gap-3 mt-2 glow"></div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="mb-8">
+        <h2 class="glow text-2xl mb-2">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-black/80 p-5 rounded-lg card-glow border border-green-800">
+                <h3 class="text-lg font-bold text-green-400 mb-1">Active Directory Lab PenTest</h3>
+                <p>Simulated a red-team attack on AD: privilege escalation, pass-the-hash, mitigation documentation. Tools: CrackMapExec, Bloodhound, Impacket.</p>
+            </div>
+            <div class="bg-black/80 p-5 rounded-lg card-glow border border-green-800">
+                <h3 class="text-lg font-bold text-green-400 mb-1">Firewall Automation Script</h3>
+                <p>Automated Linux iptables rule deployment for SOHO networks; custom Python CLI, logging features, and rollback.</p>
+            </div>
+            <!-- Add more project cards as needed -->
+        </div>
+    </section>
+
+    <!-- Certifications / Courses (Optional) -->
+    <section class="mb-8">
+        <h2 class="glow text-2xl mb-2">Certifications</h2>
+        <ul class="list-disc list-inside space-y-1">
+            <li>Certified Ethical Hacker (CEH) - 2025 (Expected)</li>
+            <li>TryHackMe: Complete Beginner/Junior Path</li>
+            <li>Linux Essentials (LPI)</li>
+        </ul>
+    </section>
+
+    <!-- Contact/Download Resume & Interview Section -->
+    <section class="mb-6 text-center">
+        <a href="LINK-TO-YOUR-RESUME.pdf"
+           class="inline-block bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 mr-2 mb-3 rounded shadow-lg transition">
+            Download Resume (.PDF)
+        </a>
+        <a href="mailto:your.email@domain.com"
+           class="inline-block bg-black border border-green-500 text-green-300 font-bold py-2 px-6 rounded shadow hover:bg-green-900 transition">
+            Contact / Hire Me
+        </a>
+    </section>
+
+    <!-- Footer ASCII Art and GitHub Link -->
+    <footer class="text-green-700 mt-14 text-center text-xs">
+        <pre class="mb-2 glow">
+   .--.
+  (o_o )
+   | |\\         //                _
+  |     \_/\,--:;:.--,__________/  )
+   |      /   /   /           /  /
+   |     /--./   /           (   \
+   '--'  '--'                '--'
+        </pre>
+        <p>&copy; 2025 Your Name | <a href="https://github.com/yourgithub" class="underline text-green-400">GitHub</a></p>
+    </footer>
+</div>
+
+<!-- Matrix Animation Script -->
+<script>
+    // Matrix Falling Code
+    var canvas = document.getElementById('matrix-canvas'),
+        ctx = canvas.getContext('2d'),
+        w = window.innerWidth,
+        h = window.innerHeight;
+
+    canvas.width = w;
+    canvas.height = h;
+
+    var cols = Math.floor(w / 20) + 1;
+    var ypos = Array(cols).fill(0);
+
+    function matrix () {
+        ctx.fillStyle = '#0a0f1288';
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.fillStyle = '#39ff14';
+        ctx.font = '16pt Fira Mono';
+        ypos.forEach((y, ind) => {
+            const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+            ctx.fillText(text, ind * 20, y);
+            if (y > 100 + Math.random() * 10000)
+                ypos[ind] = 0; else ypos[ind] = y + 20;
+        });
+    }
+    setInterval(matrix, 42);
+
+    // Auto-resize matrix canvas
+    window.onresize = function() {
+        w = window.innerWidth; h = window.innerHeight;
+        canvas.width = w; canvas.height = h;
+        cols = Math.floor(w / 20) + 1;
+        ypos = Array(cols).fill(0);
+    }
+
+    // Animated hacker skills display
+    const skills = [
+        'Python', 'Linux (Debian/Ubuntu)', 'Network Recon', 'Nmap', 'Burp Suite', 'Metasploit', 'Wireshark',
+        'Active Directory Security', 'Scripting (Bash/Python)', 'Web App Pentest', 'OWASP Top 10', 'CTF/HTB/TryHackMe',
+        'iptables', 'SSH Hardening', 'OpenVAS'
+    ];
+    let skillIdx = 0;
+    const skillsListElem = document.getElementById('skills-list');
+    function displaySkills() {
+        skillsListElem.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            const span = document.createElement('span');
+            span.className = 'bg-green-900/60 text-green-200 px-4 py-2 rounded-full text-sm font-bold transition';
+            span.textContent = skills[(skillIdx + i) % skills.length];
+            skillsListElem.appendChild(span);
+        }
+        skillIdx = (skillIdx + 1) % skills.length;
+    }
+    setInterval(displaySkills, 1100);
+    displaySkills();
+</script>
+
+</body>
+</html>

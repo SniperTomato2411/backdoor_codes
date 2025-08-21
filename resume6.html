@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medhansh Nijhawan - Hacker Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #000;
+      color: #00ff88;
+      overflow-x: hidden;
+    }
+    .terminal {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00ff88;
+      box-shadow: 0 0 15px #00ff88;
+    }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      background-color: #00ff88;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ff88;
+      transition: 0.3s;
+    }
+    #matrix {
+      position: fixed;
+      z-index: -1;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="container mx-auto px-4 py-8 relative z-10">
+    <!-- Header -->
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold">Medhansh Nijhawan</h1>
+      <p id="typing" class="text-lg text-green-400 mt-2"></p>
+    </header>
+
+    <!-- About -->
+    <section class="terminal p-6 rounded-lg mb-8">
+      <h2 class="text-2xl mb-4">[~] About Me</h2>
+      <p>
+        B.Tech CSE student passionate about cybersecurity, automation, and solving real-world problems.
+        Skilled in Python, Linux, and penetration testing tools. Currently mastering Data Structures & Algorithms in C++ and expanding expertise in computer networks, databases, and system security.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section class="terminal p-6 rounded-lg mb-8">
+      <h2 class="text-2xl mb-4">[~] Skills</h2>
+      <div id="skills" class="flex flex-wrap gap-3"></div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="terminal p-6 rounded-lg mb-8">
+      <h2 class="text-2xl mb-4">[~] Certifications</h2>
+      <ul class="list-disc pl-6 space-y-1 text-green-300">
+        <li>Dynamic Programming, Greedy Algorithms</li>
+        <li>Statistics for Data Science with Python</li>
+        <li>Introduction to Cybersecurity Tools & Cyberattacks</li>
+        <li>Operating Systems and You: Becoming a Power User</li>
+        <li>Databases and SQL for Data Science with Python</li>
+        <li>Object-Oriented Data Structures in C++</li>
+        <li>Data Structures</li>
+        <li>Computer Networks and Network Security</li>
+        <li>Peer-to-Peer Protocols and Local Area Networks</li>
+        <li>Fundamentals of Network Communication</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="terminal p-6 rounded-lg mb-8">
+      <h2 class="text-2xl mb-4">[~] Projects</h2>
+      <div id="projects" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+
+    <!-- Fun Hacker Quote -->
+    <section class="terminal p-6 rounded-lg text-center">
+      <h2 class="text-2xl mb-4">[~] Hacker Quote</h2>
+      <button id="quoteBtn" class="bg-green-800 px-4 py-2 rounded hover:bg-green-600">Generate Quote</button>
+      <p id="quoteText" class="mt-4 text-green-300"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center mt-8 text-green-600">
+      <p>Connect: 
+        <a href="mailto:medhanshnijhawan2@gmail.com" class="underline">Email</a> | 
+        <a href="https://www.linkedin.com/in/medhansh-nijhawan-653153350/" target="_blank" class="underline">LinkedIn</a>
+      </p>
+    </footer>
+  </div>
+
+<script>
+  // Matrix Background
+  const canvas = document.getElementById("matrix");
+  const ctx = canvas.getContext("2d");
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  const chars = "01";
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "#00ff88";
+    ctx.font = fontSize + "px monospace";
+    drops.forEach((y, i) => {
+      const text = chars.charAt(Math.floor(Math.random()*chars.length));
+      ctx.fillText(text, i*fontSize, y*fontSize);
+      if(y*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+  setInterval(drawMatrix, 33);
+
+  // Typing Effect
+  const text = "Aspiring Cybersecurity Specialist | Python | Linux | Offensive Security | Networks | Databases";
+  let i = 0;
+  function typingEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML = text.substring(0, i+1) + '<span class="cursor"></span>';
+      i++;
+      setTimeout(typingEffect, 50);
+    }
+  }
+  typingEffect();
+
+  // Updated Skills
+  const skills = [
+    "Python", "Linux", "Network Security","OpenAI API", "Automation", "C++", "Object-Oriented Programming", "Data Structures and Algorithms", "Statistics for Data Science", "SQL", "Java",
+  ];
+  document.getElementById("skills").innerHTML = skills.map(skill => 
+    `<span class="bg-green-900/50 text-green-300 text-sm px-4 py-2 rounded-full">${skill}</span>`
+  ).join("");
+
+  // Projects
+  const projects = [
+    {title: "AI Personal Assistant (J.A.R.V.I.S)", desc: "Voice-controlled assistant using Python, Speech Recognition, and OpenAI API. Automates tasks and fetches data."},
+    {title: "Mental Health Support Platform", desc: "Platform with resources, self-help tools, and community features for mental health awareness."},
+    {title: "Firewall Rule-set Analysis", desc: "Secure firewall configuration using iptables on Linux for small business networks."},
+    {title: "Vulnerability Assessment Report", desc: "Simulated penetration testing with Nmap, Metasploit, and Wireshark."}
+  ];
+  document.getElementById("projects").innerHTML = projects.map(p => `
+    <div class="bg-black/80 p-4 rounded-lg card-hover">
+      <h3 class="text-xl text-green-400 font-bold">${p.title}</h3>
+      <p class="text-green-200">${p.desc}</p>
+    </div>
+  `).join("");
+
+  // Hacker Quotes
+  const quotes = [
+    "Hack the planet.",
+    "Security is not a product, but a process.",
+    "The quieter you become, the more you can hear.",
+    "First rule of hacking: trust no one.",
+    "Exploit, adapt, overcome."
+  ];
+  document.getElementById("quoteBtn").addEventListener("click", () => {
+    document.getElementById("quoteText").innerText = quotes[Math.floor(Math.random()*quotes.length)];
+  });
+</script>
+</body>
+</html>

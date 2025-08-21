@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart - File Processing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Flowchart for File Processing</h1>
+    </header>
+    <div class="flowchart">
+        <div class="node start">
+            <img src="https://cdn-icons-png.freepik.com/256/5453/5453665.png?semt=ais_hybrid" alt="Start Icon" />
+            <p></p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/15623/15623521.png?semt=ais_hybrid" alt="Receive Files Icon" />
+            <p>Receive Vendor Files</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/715/715071.png?semt=ais_hybrid" alt="Validate Files Icon" />
+            <p>Validate File Names</p>
+        </div>
+        <div class="arrow decision"></div>
+        <div class="node decision">
+            <img src="https://cdn-icons-png.freepik.com/256/9477/9477762.png?semt=ais_hybrid" alt="Decision Icon" />
+            <p>File Name Valid?</p>
+        </div>
+        <div class="arrow yes-no yes"></div>
+        <div class="arrow yes-no no"></div>
+        <div class="node no">
+            <img src="https://cdn-icons-png.freepik.com/256/10286/10286737.png?semt=ais_hybrid" alt="Discard Files Icon" />
+            <p>Discard File</p>
+        </div>
+        <div class="node yes">
+            <img src="https://cdn-icons-png.freepik.com/256/1666/1666578.png?semt=ais_hybrid" alt="Read Files Icon" />
+            <p>Read CSV Files</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/2063/2063808.png?semt=ais_hybrid" alt="Parse Data Icon" />
+            <p>Parse Data Fields</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/2123/2123247.png?semt=ais_hybrid" alt="Summarize Data Icon" />
+            <p>Summarize Data</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/8746/8746201.png?semt=ais_hybrid" alt="HTML Report Icon" />
+            <p>Generate HTML Report</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node">
+            <img src="https://cdn-icons-png.freepik.com/256/3462/3462093.png?semt=ais_hybrid" alt="Save and Notify Icon" />
+            <p>Save Report & Notify</p>
+        </div>
+        <div class="arrow"></div>
+        <div class="node end">
+            <img src="https://cdn-icons-png.freepik.com/256/16599/16599025.png?semt=ais_hybrid" alt="End Icon" />
+            <p></p>
+        </div>
+    </div>
+</body>
+</html>

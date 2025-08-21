@@ -1,0 +1,248 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Medhansh Nijhawan - Portfolio</title>
+        <!-- Tailwind CSS for styling -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Google Fonts: Inter -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+        <style>
+            /* Use the Inter font family */
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #0f172a; /* bg-slate-900 */
+                color: #e2e8f0; /* text-slate-200 */
+            }
+
+            /* Canvas for animated background */
+            #particle-canvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1; /* Place it behind all other content */
+            }
+            
+            /* Add glow effect to header text */
+            .text-glow {
+                text-shadow: 0 0 8px rgba(56, 189, 248, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
+            }
+
+            /* Enhanced animation for cards on hover */
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3), 0 0 20px rgba(56, 189, 248, 0.6);
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            }
+
+            /* Keyframe animation for fade-in and slide-up effect */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Animation utility class */
+            .animate-on-load {
+                animation: fadeInUp 0.8s ease-out forwards;
+                opacity: 0; /* Start as invisible, animation will make it visible */
+            }
+        </style>
+    </head>
+    <body class="antialiased">
+
+        <!-- Animated Background -->
+        <canvas id="particle-canvas"></canvas>
+
+        <!-- Main Container -->
+        <div class="relative z-10 container mx-auto max-w-4xl px-4 py-8 md:py-12">
+
+            <!-- Header Section -->
+            <header class="flex flex-col md:flex-row items-center justify-between mb-12 animate-on-load" style="animation-delay: 0.1s;">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-cyan-400 text-glow">Medhansh Nijhawan</h1>
+                    <p class="text-lg text-slate-400 mt-2">B.Tech CSE Student | Aspiring Cybersecurity Specialist</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <img src="https://placehold.co/120x120/1e293b/94a3b8?text=HK" alt="Medhansh Nijhawan's initials" class="rounded-full border-4 border-slate-700 shadow-lg">
+                </div>
+            </header>
+
+            <!-- About Me Section -->
+            <section id="about" class="bg-slate-800/80 backdrop-blur-sm p-6 rounded-lg shadow-xl mb-12 animate-on-load" style="animation-delay: 0.3s;">
+                <h2 class="text-3xl font-bold mb-4 border-b-2 border-cyan-500 pb-2">About Me</h2>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    Hello! I'm a passionate and motivated 3rd-year Computer Science Engineering student with a keen interest in the architecture of the web and the security that underpins it. I enjoy the challenge of solving complex problems, learning new technologies, and building robust applications. My goal is to leverage my skills in software development to specialize in cybersecurity, helping to build a safer digital world.
+                </p>
+                <ul class="list-none space-y-2">
+                    <li><span class="font-semibold text-cyan-400">Name:</span> Medhansh Nijhawan</li>
+                    <li><span class="font-semibold text-cyan-400">Age:</span> 21</li>
+                    <li><span class="font-semibold text-cyan-400">Course:</span> B.Tech in Computer Science & Engineering</li>
+                    <li><span class="font-semibold text-cyan-400">Specialization:</span> Cybersecurity</li>
+                </ul>
+            </section>
+
+            <!-- Skills & Specialization Section -->
+            <section id="skills" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cyan-500 pb-2 animate-on-load" style="animation-delay: 0.5s;">Skills & Specialization</h2>
+                <div class="bg-slate-800/80 backdrop-blur-sm p-6 rounded-lg shadow-xl animate-on-load" style="animation-delay: 0.7s;">
+                    <p class="text-slate-300 mb-4">I am focusing on developing a strong foundation in both offensive and defensive security practices. My core skills include:</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Python</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Linux</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Network Security</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Nmap</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Wireshark</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">Metasploit</span>
+                        <span class="bg-cyan-900/50 text-cyan-300 text-sm font-medium px-4 py-2 rounded-full">iptables</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cyan-500 pb-2 animate-on-load" style="animation-delay: 0.9s;">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project Card 1: Pen Testing -->
+                    <div class="bg-slate-800/80 backdrop-blur-sm p-6 rounded-lg shadow-xl card-hover animate-on-load" style="animation-delay: 1.1s;">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Vulnerability Assessment Report</h3>
+                        <p class="text-slate-400">Conducted a simulated penetration test on a virtual network. Utilized tools like Nmap, Metasploit, and Wireshark to identify and report critical vulnerabilities in a controlled environment.</p>
+                    </div>
+                    <!-- Project Card 2: Firewall -->
+                    <div class="bg-slate-800/80 backdrop-blur-sm p-6 rounded-lg shadow-xl card-hover animate-on-load" style="animation-delay: 1.3s;">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">Firewall Rule-set Analysis</h3>
+                        <p class="text-slate-400">Developed and analyzed a secure firewall configuration for a small business network using iptables on Linux. The project focused on balancing security with network performance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Element Section -->
+            <section id="interactive" class="text-center mb-12 animate-on-load" style="animation-delay: 1.5s;">
+                <h2 class="text-3xl font-bold mb-6 border-b-2 border-cyan-500 pb-2">A Little Fun</h2>
+                <button id="funFactButton" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-cyan-500/50">
+                    Click for a Tech Fact!
+                </button>
+                <p id="funFactText" class="text-slate-400 mt-4 h-6 transition-opacity duration-300"></p>
+            </section>
+
+            <!-- Thank You Section -->
+            <section id="thank-you" class="text-center py-8 animate-on-load" style="animation-delay: 1.7s;">
+                <h2 class="text-4xl font-bold text-cyan-400 text-glow">Thank You</h2>
+                <p class="text-slate-400 mt-2">Thank you for visiting my portfolio page!</p>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center text-slate-500 mt-12">
+                <p>&copy; 2025 Medhansh Nijhawan. All Rights Reserved.</p>
+            </footer>
+
+        </div>
+
+        <script>
+            // --- Animated Background Script ---
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+
+            let particles = [];
+            const numParticles = 100;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor(x, y, radius, color, velocity) {
+                    this.x = x;
+                    this.y = y;
+                    this.radius = radius;
+                    this.color = color;
+                    this.velocity = velocity;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+
+                update() {
+                    this.draw();
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+
+                    if (this.x < 0 || this.x > canvas.width) this.velocity.x = -this.velocity.x;
+                    if (this.y < 0 || this.y > canvas.height) this.velocity.y = -this.velocity.y;
+                }
+            }
+
+            function init() {
+                particles = [];
+                for (let i = 0; i < numParticles; i++) {
+                    const radius = Math.random() * 1.5 + 0.5;
+                    const x = Math.random() * (canvas.width - radius * 2) + radius;
+                    const y = Math.random() * (canvas.height - radius * 2) + radius;
+                    const color = 'rgba(56, 189, 248, 0.5)';
+                    const velocity = {
+                        x: (Math.random() - 0.5) * 0.5,
+                        y: (Math.random() - 0.5) * 0.5
+                    };
+                    particles.push(new Particle(x, y, radius, color, velocity));
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(particle => {
+                    particle.update();
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                init();
+            });
+
+            resizeCanvas();
+            init();
+            animate();
+
+
+            // --- Fun Fact Button Script ---
+            const funFactButton = document.getElementById('funFactButton');
+            const funFactText = document.getElementById('funFactText');
+
+            const funFacts = [
+                "The first computer programmer was a woman named Ada Lovelace.",
+                "The first computer 'bug' was an actual moth stuck in a relay.",
+                "The original name for JavaScript was 'Mocha'.",
+                "There are over 700 different programming languages.",
+                "The term 'Wi-Fi' doesn't actually stand for anything.",
+                "The average cloud data center consumes as much energy as a small city.",
+                "The QWERTY keyboard was designed to slow typists down."
+            ];
+
+            funFactButton.addEventListener('click', () => {
+                const randomIndex = Math.floor(Math.random() * funFacts.length);
+                funFactText.style.opacity = 0;
+                setTimeout(() => {
+                    funFactText.textContent = funFacts[randomIndex];
+                    funFactText.style.opacity = 1;
+                }, 300);
+            });
+        </script>
+    </body>
+    </html>
